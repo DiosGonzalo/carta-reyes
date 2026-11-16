@@ -4,261 +4,199 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Carta de Reyes 2026</title>
-  <meta name="description" content="Carta de Reyes 2026. Cada regalo abre la tienda donde se compra.">
-  <meta name="theme-color" content="#10182c">
+  <meta name="description" content="Carta de Reyes 2026. Cada ficha abre la tienda donde se compra.">
+  <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,680;1,9..144,520&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #241c14;
-      --ink-soft: #5c5146;
-      --paper: #f7f1e6;
-      --paper-2: #efe4d2;
-      --gold: #e6c98a;
-      --gold-2: #f8edd2;
-      --wax: #8d2c2c;
-      --night: #10182c;
-      --night-2: #1a2744;
-      --pine: #1d3a32;
-      --line: rgba(36, 28, 20, 0.12);
+      --dot: 7px;
+      --gap: 9px;
+      --ink: #f4f4f4;
+      --dim: #8d8d8d;
+      --line: rgba(255, 255, 255, 0.16);
+      --bg: #000;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-bottom: 96px; }
+    html { scroll-behavior: smooth; scroll-padding-bottom: 92px; }
     body {
       margin: 0;
-      color: var(--gold-2);
-      font-family: Outfit, "Segoe UI", sans-serif;
-      background: var(--night);
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
     }
     a { color: inherit; }
-    img, svg { display: block; }
+    button, a { -webkit-tap-highlight-color: transparent; }
 
-    .sky {
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(1.5px 1.5px at 12% 18%, #fff 50%, transparent 52%),
-        radial-gradient(1px 1px at 28% 72%, #fff 50%, transparent 52%),
-        radial-gradient(1.2px 1.2px at 64% 22%, #f8edd2 50%, transparent 52%),
-        radial-gradient(1px 1px at 78% 64%, #fff 50%, transparent 52%),
-        radial-gradient(1.4px 1.4px at 88% 14%, #fff 50%, transparent 52%),
-        radial-gradient(1px 1px at 46% 40%, #fff 50%, transparent 52%),
-        radial-gradient(1px 1px at 8% 88%, #f8edd2 50%, transparent 52%),
-        radial-gradient(ellipse at 50% -10%, #24345c, transparent 55%),
-        var(--night);
-      z-index: 0;
-    }
-
-    .wrap {
-      position: relative;
-      z-index: 1;
-      padding: 22px 16px 108px;
+    .page {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 18px 16px 108px;
     }
 
     .top {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 12px;
-      margin-bottom: 18px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      gap: 16px;
+      padding-bottom: 18px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
       font-size: 11px;
-      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .top strong {
+      color: var(--ink);
+      font-weight: 500;
     }
 
-    .letter {
-      position: relative;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.35), transparent 80px),
-        var(--paper);
-      color: var(--ink);
-      border-radius: 18px 18px 8px 8px;
-      padding: 54px 22px 26px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-    }
-    .letter::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 42px;
-      background: linear-gradient(#c4a36a, #8d6840);
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-      border-radius: 18px 18px 0 0;
-    }
-    .seal {
-      position: absolute;
-      z-index: 1;
-      top: 22px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 35% 30%, #c45a52, var(--wax) 55%, #641818);
-      box-shadow: 0 6px 0 #5c1818, 0 10px 16px rgba(0,0,0,0.25);
-      color: #f8e7c8;
+    .phone {
       display: grid;
-      place-items: center;
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 680;
-      font-size: 13px;
-      letter-spacing: 0.04em;
+      justify-items: center;
+      gap: 14px;
+      margin: 8px 0 26px;
     }
-    .letter h1 {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 560;
-      font-size: 34px;
-      line-height: 1.05;
-      margin: 18px 0 8px;
+    .glyph {
+      display: grid;
+      grid-template-columns: repeat(5, var(--dot));
+      gap: var(--gap);
     }
-    .letter .date {
+    .dot {
+      width: var(--dot);
+      height: var(--dot);
+      border-radius: 50%;
+      background: #2a2a2a;
+    }
+    .dot.on {
+      background: #fff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    }
+    .readout {
+      margin: 0;
+      min-height: 1.2em;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    .lede {
       margin: 0 0 16px;
-      color: var(--ink-soft);
-      font-size: 13px;
+      font-size: 28px;
+      line-height: 1.05;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+    .lede span {
+      display: block;
+      margin-top: 8px;
+      color: var(--dim);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-    .letter p {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 520;
-      font-style: italic;
-      font-size: 17.5px;
-      line-height: 1.45;
-      margin: 0 0 12px;
-    }
-    .sign {
-      margin-top: 18px;
-      font-family: Fraunces, Georgia, serif;
-      font-style: italic;
-      font-size: 20px;
-    }
-
-    .list-head {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-      margin: 28px 4px 12px;
-    }
-    .list-head h2 {
-      margin: 0;
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 560;
-      font-size: 28px;
-    }
-    .list-head p {
-      margin: 0;
-      color: var(--gold);
-      font-size: 14px;
-      line-height: 1.35;
     }
 
     .gifts {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 10px;
     }
 
     .gift {
-      display: grid;
-      grid-template-columns: 1fr;
-      text-decoration: none;
-      color: var(--ink);
-      background: var(--paper);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-      min-height: 44px;
-      scroll-margin-top: 16px;
-      scroll-margin-bottom: 96px;
-    }
-    .gift:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 3px;
-    }
-    .art {
+      --x: 50%;
+      --y: 0%;
       position: relative;
-      min-height: 148px;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(230, 201, 138, 0.35), transparent 42%),
-        var(--pine);
       display: grid;
-      place-items: center;
-      padding: 16px;
+      grid-template-columns: auto 1fr;
+      gap: 6px 14px;
+      padding: 18px 16px 16px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      text-decoration: none;
+      overflow: hidden;
+      scroll-margin: 18px 0 96px;
     }
-    .art svg { width: 120px; height: 84px; }
-    .stamp {
+    .gift::before {
+      content: "";
       position: absolute;
-      top: 12px;
-      left: 12px;
-      border: 1.5px dashed var(--gold);
-      color: var(--gold-2);
-      border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      inset: 0;
+      background: radial-gradient(280px circle at var(--x) var(--y), rgba(255, 255, 255, 0.14), transparent 42%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
     }
-    .body {
-      padding: 16px 16px 18px;
+    .gift:hover::before,
+    .gift:focus-visible::before,
+    .gift.is-on::before { opacity: 1; }
+    .gift:hover,
+    .gift:focus-visible,
+    .gift.is-on { border-color: #fff; }
+    .gift:focus-visible { outline: none; }
+    .gift:active { transform: scale(0.985); }
+
+    .idx {
+      grid-row: 1 / span 2;
+      align-self: start;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--dim);
+      padding-top: 6px;
     }
     .kicker {
-      display: block;
-      color: #8a5a2b;
-      font-size: 12px;
-      letter-spacing: 0.14em;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      color: var(--dim);
     }
-    .gift h3 {
-      margin: 0 0 8px;
-      font-family: Fraunces, Georgia, serif;
-      font-size: 24px;
-      font-weight: 560;
+    h2 {
+      margin: 2px 0 0;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
       line-height: 1.1;
     }
     .why {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 15px;
+      grid-column: 2;
+      margin: 8px 0 0;
+      color: #c6c6c6;
+      font-size: 14.5px;
       line-height: 1.4;
     }
     .foot {
+      grid-column: 2;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
     }
     .price {
-      font-weight: 600;
-      font-size: 15px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 13px;
       white-space: nowrap;
     }
     .cta {
-      background: var(--ink);
-      color: var(--paper);
+      border: 1px solid #fff;
       border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
-      font-weight: 600;
+      padding: 7px 12px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
       white-space: nowrap;
     }
 
     .note {
-      margin: 18px 4px 0;
-      color: rgba(248, 237, 210, 0.72);
-      font-size: 12px;
-      line-height: 1.45;
+      margin: 18px 2px 0;
+      color: var(--dim);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      line-height: 1.5;
     }
 
     .dock {
@@ -269,283 +207,199 @@
       bottom: 10px;
       display: flex;
       gap: 4px;
-      padding: 6px;
+      padding: 8px 6px 6px;
+      border: 1px solid var(--line);
       border-radius: 18px;
-      background: rgba(16, 24, 44, 0.92);
-      border: 1px solid rgba(230, 201, 138, 0.35);
-      backdrop-filter: blur(8px);
-      overflow-x: auto;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
     }
     .dock a {
       flex: 1 0 auto;
-      text-decoration: none;
-      text-align: center;
-      color: var(--gold-2);
-      font-size: 10px;
-      letter-spacing: 0.02em;
-      padding: 8px 4px 6px;
-      border-radius: 12px;
       min-height: 44px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--dim);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .dock a:focus-visible { outline: 2px solid var(--gold); }
-    .dock svg { width: 18px; height: 18px; margin: 0 auto 3px; }
+    .dock a i {
+      display: block;
+      width: 6px;
+      height: 6px;
+      margin: 4px auto 6px;
+      border-radius: 50%;
+      background: #2a2a2a;
+    }
+    .dock a.on { color: #fff; }
+    .dock a.on i {
+      background: #fff;
+      box-shadow: 0 0 8px #fff;
+    }
 
-    @media (min-width: 980px) {
-      .sky { display: none; }
-      body {
-        background:
-          radial-gradient(ellipse at 50% 0%, #4a3b2c, transparent 42%),
-          linear-gradient(#3a2e24, #241910);
-        color: var(--ink);
-      }
-      .wrap {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 28px 28px 40px;
-      }
-      .top {
-        color: var(--gold-2);
-        margin-bottom: 22px;
-      }
-      .stage {
+    @media (min-width: 960px) {
+      :root { --dot: 13px; --gap: 15px; }
+      .page {
         display: grid;
-        grid-template-columns: 390px 1fr;
+        grid-template-columns: 300px 1fr;
         gap: 28px;
+        min-height: 100vh;
+        padding: 0 32px 48px;
         align-items: start;
       }
-      .letter {
+      .top { display: none; }
+      .phone {
         position: sticky;
-        top: 24px;
-        border-radius: 6px 22px 18px 6px;
-        padding: 36px 28px 28px;
-        transform: rotate(-0.4deg);
+        top: 0;
+        height: 100vh;
+        margin: 0;
+        align-content: start;
+        justify-items: center;
+        padding-top: 48px;
       }
-      .letter::before { display: none; }
-      .seal {
-        top: 22px;
-        left: auto;
-        right: 22px;
-        transform: none;
-      }
-      .letter h1 { font-size: 42px; margin-top: 0; padding-right: 60px; }
-      .letter p { font-size: 17px; }
-
-      .gifts {
+      .bezel {
+        width: 250px;
+        padding: 28px 22px 22px;
+        border: 1px solid var(--line);
+        border-radius: 36px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-        padding: 16px;
-        background: rgba(247, 241, 230, 0.94);
-        border-radius: 28px;
-        box-shadow: 0 24px 50px rgba(0,0,0,0.28);
+        justify-items: center;
+        gap: 22px;
       }
-      .list-head {
-        grid-column: 1 / -1;
-        margin: 6px 8px 2px;
-        color: var(--ink);
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: end;
+      .camera {
+        width: 46px;
+        height: 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
       }
-      .list-head p { color: var(--ink-soft); max-width: 280px; text-align: right; }
+      .lede { font-size: 42px; margin-top: 48px; }
       .gift {
-        grid-template-columns: 104px 1fr;
-        min-height: 176px;
-        border-radius: 16px;
-        box-shadow: none;
-        border: 1px solid rgba(36, 28, 20, 0.08);
-        transition: transform 0.18s ease, box-shadow 0.18s ease;
+        grid-template-columns: 52px 1fr auto;
+        align-items: center;
+        padding: 18px 20px;
+        border-radius: 18px;
       }
-      .gift:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 24px rgba(36, 28, 20, 0.12);
-      }
-      .art { min-height: 100%; padding: 22px 8px 12px; }
-      .art svg { width: 78px; height: 56px; }
-      .stamp { font-size: 9px; letter-spacing: 0.08em; padding: 3px 6px; }
-      .gift h3 { font-size: 20px; }
-      .why { font-size: 13.5px; }
-      .note {
-        grid-column: 1 / -1;
-        margin: 0 8px 4px;
-        color: var(--ink-soft);
+      .idx { grid-row: auto; padding-top: 0; }
+      .kicker { grid-column: 2; }
+      h2 { grid-column: 2; font-size: 26px; }
+      .why { grid-column: 2 / 4; }
+      .foot {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        margin: 0;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
       }
       .dock { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .gift { transition: none; }
+      .gift, .gift::before, .dot { transition: none; }
+      .gift:active { transform: none; }
     }
   </style>
 </head>
 <body>
-  <div class="sky" aria-hidden="true"></div>
-  <main class="wrap">
+  <div class="page">
     <header class="top">
-      <span>Carta de Reyes</span>
-      <span>5 de enero de 2026</span>
+      <span>Carta <strong>2026</strong></span>
+      <span id="count">07 objetos</span>
     </header>
 
-    <div class="stage">
-      <article class="letter">
-        <div class="seal" aria-hidden="true">R</div>
-        <h1>Queridos papá y mamá</h1>
-        <p class="date">Siete deseos, cada uno con su tienda</p>
-        <p>Este año la carta va de monte. Si tocáis una tarjeta, se abre la página donde se compra: en el móvil ocupa la pantalla, y en el ordenador queda al lado de esta carta.</p>
-        <p>La tienda que quiero es la Mongar 2 de tela 20D, la gris, en la web de Naturehike. Pesa 1,8 kg, tiene dos puertas y el suelo es más ancho. La 210T de la misma página pesa 2,2 kg: no es esa. La Cloud Up es un poco más ligera, pero se queda corta de sitio.</p>
-        <p>La silla y el plumífero también los he elegido yo. La impermeable ya la tengo: el plumífero es la capa de calor, y va debajo. El gorro es el Tweak de Mammut, pesa 40 g y tapa las orejas.</p>
-        <p class="sign">Os quiero.</p>
-      </article>
+    <aside class="phone">
+      <div class="bezel">
+        <div class="camera" aria-hidden="true"></div>
+        <div class="glyph" id="glyph" aria-hidden="true"></div>
+        <p class="readout" id="readout">En espera</p>
+      </div>
+    </aside>
 
+    <main>
+      <p class="lede">Siete cosas.<span>Toca una ficha y se abre la tienda</span></p>
       <section class="gifts" aria-label="Regalos">
-        <div class="list-head">
-          <h2>Los regalos</h2>
-          <p>Toda la tarjeta es el enlace. El botón dice la tienda.</p>
-        </div>
-
-        <a class="gift" id="tienda" href="https://www.naturehike.com/products/mongar-2-person-ultralight-backpacking-tent?variant=46130781126912" target="_blank" rel="noopener noreferrer">
-          <div class="art">
-            <span class="stamp">20D gris</span>
-            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
-              <path d="M10 58c18-28 82-28 100 0" stroke="#f8edd2" stroke-width="3"/>
-              <path d="M22 58c12-16 64-16 76 0" stroke="#e6c98a" stroke-width="2"/>
-              <path d="M18 58h84" stroke="#f8edd2" stroke-width="3"/>
-              <path d="M60 30v28" stroke="#e6c98a" stroke-width="2"/>
-              <path d="M28 50l32-22 32 22" stroke="#f8edd2" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="body">
-            <span class="kicker">Tienda de ruta</span>
-            <h3>Naturehike Mongar 2, 20D</h3>
-            <p class="why">Gris, dos puertas y suelo de 210 × 135 cm. Naturehike la da en 1,82 kg. En la misma página la 210T sale más barata y pesa 2,2 kg: no es esa. El envío se suma al pagar.</p>
-            <div class="foot">
-              <span class="price">unos 130 €</span>
-              <span class="cta">Ver en Naturehike</span>
-            </div>
+        <a class="gift" id="tienda" data-label="Tienda" href="https://www.naturehike.com/products/mongar-2-person-ultralight-backpacking-tent?variant=46130781126912" target="_blank" rel="noopener noreferrer">
+          <span class="idx">01</span>
+          <span class="kicker">Tienda de ruta</span>
+          <h2>Mongar 2, 20D</h2>
+          <p class="why">Gris, dos puertas, suelo de 210 × 135 cm y 1,82 kg. En la misma página la 210T pesa 2,2 kg: no es esa. El envío se suma al pagar.</p>
+          <div class="foot">
+            <span class="price">unos 130 €</span>
+            <span class="cta">Naturehike</span>
           </div>
         </a>
 
-        <a class="gift" id="zapatos" href="https://www.adidas.es/zapatillas-de-senderismo-terrex-freehiker-sl-gore-tex-climawarm_/KI4872.html" target="_blank" rel="noopener noreferrer">
-          <div class="art">
-            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
-              <path d="M18 48c8-16 22-22 36-18 8 2 14 2 22-6 10 4 22 14 28 24 2 8-6 14-18 14H28c-8 0-14-6-10-14z" stroke="#f8edd2" stroke-width="2.4"/>
-              <path d="M34 50h54" stroke="#e6c98a" stroke-width="2"/>
-              <path d="M28 62c8 2 52 2 66-4" stroke="#f8edd2" stroke-width="3"/>
-            </svg>
-          </div>
-          <div class="body">
-            <span class="kicker">Zapatillas de invierno</span>
-            <h3>Terrex Freehiker SL GORE-TEX</h3>
-            <p class="why">Aislamiento Climawarm+ y suela Continental, para frío y agua. Negras, referencia KI4872. Dan la talla de siempre.</p>
-            <div class="foot">
-              <span class="price">180 €</span>
-              <span class="cta">Ver en adidas</span>
-            </div>
+        <a class="gift" id="zapatos" data-label="Zapatos" href="https://www.adidas.es/zapatillas-de-senderismo-terrex-freehiker-sl-gore-tex-climawarm_/KI4872.html" target="_blank" rel="noopener noreferrer">
+          <span class="idx">02</span>
+          <span class="kicker">Zapatillas de invierno</span>
+          <h2>Terrex Freehiker SL</h2>
+          <p class="why">GORE-TEX, Climawarm+ y suela Continental. Negras, referencia KI4872. Dan la talla de siempre.</p>
+          <div class="foot">
+            <span class="price">180 €</span>
+            <span class="cta">adidas</span>
           </div>
         </a>
 
-        <a class="gift" id="raton" href="https://www.amazon.es/dp/B0D3D5JY97" target="_blank" rel="noopener noreferrer">
-          <div class="art">
-            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
-              <rect x="46" y="16" width="28" height="40" rx="14" stroke="#f8edd2" stroke-width="2.4"/>
-              <path d="M60 16v16" stroke="#e6c98a" stroke-width="2"/>
-              <rect x="34" y="58" width="52" height="12" rx="4" stroke="#f8edd2" stroke-width="2.4"/>
-              <circle cx="60" cy="64" r="2" fill="#e6c98a"/>
-            </svg>
-          </div>
-          <div class="body">
-            <span class="kicker">Ratón</span>
-            <h3>Attack Shark X11</h3>
-            <p class="why">Inalámbrico, con sensor PixArt y base de carga magnética. El enlace abre el anuncio concreto.</p>
-            <div class="foot">
-              <span class="price">unos 40 €</span>
-              <span class="cta">Ver en Amazon</span>
-            </div>
+        <a class="gift" id="raton" data-label="Ratón" href="https://www.amazon.es/dp/B0D3D5JY97" target="_blank" rel="noopener noreferrer">
+          <span class="idx">03</span>
+          <span class="kicker">Ratón</span>
+          <h2>Attack Shark X11</h2>
+          <p class="why">Inalámbrico, sensor PixArt y base de carga magnética. El enlace abre ese anuncio.</p>
+          <div class="foot">
+            <span class="price">unos 40 €</span>
+            <span class="cta">Amazon</span>
           </div>
         </a>
 
-        <a class="gift" id="colonia" href="https://www.primor.eu/es_es/afnan-perfumes-supremacy-collector-s-edition-156610.html" target="_blank" rel="noopener noreferrer">
-          <div class="art">
-            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
-              <rect x="52" y="14" width="16" height="10" rx="2" stroke="#f8edd2" stroke-width="2.2"/>
-              <path d="M46 28h28l-4 40H50l-4-40z" stroke="#f8edd2" stroke-width="2.4"/>
-              <path d="M50 42h20" stroke="#e6c98a" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="body">
-            <span class="kicker">Colonia</span>
-            <h3>Afnan Supremacy Collector's Edition</h3>
-            <p class="why">Eau de parfum de 100 ml. Piña, bergamota y manzana al principio; ámbar y almizcle al fondo.</p>
-            <div class="foot">
-              <span class="price">unos 45 €</span>
-              <span class="cta">Ver en Primor</span>
-            </div>
+        <a class="gift" id="colonia" data-label="Colonia" href="https://www.primor.eu/es_es/afnan-perfumes-supremacy-collector-s-edition-156610.html" target="_blank" rel="noopener noreferrer">
+          <span class="idx">04</span>
+          <span class="kicker">Colonia</span>
+          <h2>Supremacy Collector's</h2>
+          <p class="why">Eau de parfum de 100 ml. Piña, bergamota y manzana; al fondo, ámbar y almizcle.</p>
+          <div class="foot">
+            <span class="price">unos 45 €</span>
+            <span class="cta">Primor</span>
           </div>
         </a>
 
-        <a class="gift" id="silla" href="https://www.decathlon.es/es/p/silla-baja-de-camping-plegable-y-ultracompacta-500-m-beige/375910/c70c1m8975151" target="_blank" rel="noopener noreferrer">
-          <div class="art">
-            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
-              <path d="M30 24c8 10 14 28 12 40M90 24c-8 10-14 28-12 40" stroke="#f8edd2" stroke-width="2.4"/>
-              <path d="M34 40h52" stroke="#e6c98a" stroke-width="3"/>
-              <path d="M28 64h18M74 64h18" stroke="#f8edd2" stroke-width="2.4"/>
-              <path d="M40 40c6 14 34 14 40 0" stroke="#f8edd2" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="body">
-            <span class="kicker">Silla de vivac</span>
-            <h3>Silla baja Quechua 500</h3>
-            <p class="why">Aluminio, 1,1 kg, plegada mide 38 × 13 × 12 cm y aguanta 110 kg. Una Helinox pesa la mitad y cuesta más del triple.</p>
-            <div class="foot">
-              <span class="price">39,99 €</span>
-              <span class="cta">Ver en Decathlon</span>
-            </div>
+        <a class="gift" id="silla" data-label="Silla" href="https://www.decathlon.es/es/p/silla-baja-de-camping-plegable-y-ultracompacta-500-m-beige/375910/c70c1m8975151" target="_blank" rel="noopener noreferrer">
+          <span class="idx">05</span>
+          <span class="kicker">Silla de vivac</span>
+          <h2>Quechua 500</h2>
+          <p class="why">Aluminio, 1,1 kg, plegada mide 38 × 13 × 12 cm y aguanta 110 kg.</p>
+          <div class="foot">
+            <span class="price">39,99 €</span>
+            <span class="cta">Decathlon</span>
           </div>
         </a>
 
-        <a class="gift" id="capa" href="https://www.decathlon.es/es/p/plumifero-de-montana-y-trekking-con-capucha-hombre-forclaz-mt100/167571/c43m8858286" target="_blank" rel="noopener noreferrer">
-          <div class="art">
-            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
-              <path d="M60 16c8 0 12 6 12 6l16 10-8 8-8-4v28H48V36l-8 4-8-8 16-10s4-6 12-6z" stroke="#f8edd2" stroke-width="2.4"/>
-              <path d="M60 22v36" stroke="#e6c98a" stroke-width="2"/>
-              <path d="M48 28c6 6 18 6 24 0" stroke="#e6c98a" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="body">
-            <span class="kicker">Capa de calor</span>
-            <h3>Plumífero Forclaz MT100</h3>
-            <p class="why">Plumón de 800 CUIN, con capucha, se guarda en su bolsillo. Va debajo de la impermeable. Decathlon lo sitúa hasta unos −5 °C en marcha. Si llueve, no va solo.</p>
-            <div class="foot">
-              <span class="price">37,99 €</span>
-              <span class="cta">Ver en Decathlon</span>
-            </div>
+        <a class="gift" id="capa" data-label="Capa" href="https://www.decathlon.es/es/p/plumifero-de-montana-y-trekking-con-capucha-hombre-forclaz-mt100/167571/c43m8858286" target="_blank" rel="noopener noreferrer">
+          <span class="idx">06</span>
+          <span class="kicker">Capa de calor</span>
+          <h2>Forclaz MT100</h2>
+          <p class="why">Plumón de 800 CUIN, con capucha. Va debajo de la impermeable, que esa ya está. Hasta unos −5 °C en marcha.</p>
+          <div class="foot">
+            <span class="price">37,99 €</span>
+            <span class="cta">Decathlon</span>
           </div>
         </a>
 
-        <a class="gift" id="gorro" href="https://www.mammut.com/es/es/products/1191-01352-5899/tweak-beanie" target="_blank" rel="noopener noreferrer">
-          <div class="art">
-            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
-              <path d="M38 46c2-18 10-28 22-28s20 10 22 28" stroke="#f8edd2" stroke-width="2.4"/>
-              <path d="M34 46h52v8c0 8-10 14-26 14S34 62 34 54v-8z" stroke="#f8edd2" stroke-width="2.4"/>
-              <path d="M42 50h36" stroke="#e6c98a" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="body">
-            <span class="kicker">Gorro</span>
-            <h3>Mammut Tweak Beanie</h3>
-            <p class="why">Marine-white, talla única y 40 g. Punto de lana y acrílico, con forro de polar por dentro para las orejas. Hecho en Alemania.</p>
-            <div class="foot">
-              <span class="price">30 €</span>
-              <span class="cta">Ver en Mammut</span>
-            </div>
+        <a class="gift" id="gorro" data-label="Gorro" href="https://www.mammut.com/es/es/products/1191-01352-5899/tweak-beanie" target="_blank" rel="noopener noreferrer">
+          <span class="idx">07</span>
+          <span class="kicker">Gorro</span>
+          <h2>Tweak Beanie</h2>
+          <p class="why">Marine-white, talla única y 40 g. Punto de lana y acrílico, con polar por dentro.</p>
+          <div class="foot">
+            <span class="price">30 €</span>
+            <span class="cta">Mammut</span>
           </div>
         </a>
-
-        <p class="note">Precios vistos en noviembre de 2026. En la tienda pueden haber cambiado. En la tienda de campaña, dejad marcada la variante Grey 20D. La 210T es otra tela y pesa más.</p>
       </section>
-    </div>
-  </main>
+      <p class="note">Precios vistos en noviembre de 2026. Pueden cambiar. En la tienda, dejad marcada Grey 20D.</p>
+    </main>
+  </div>
 
   <nav class="dock" aria-label="Regalos">
     <a href="#tienda">Tienda</a>
@@ -556,5 +410,95 @@
     <a href="#capa">Capa</a>
     <a href="#gorro">Gorro</a>
   </nav>
+
+  <script>
+    (function () {
+      var cols = 5;
+      var total = 40;
+      var glyph = document.getElementById("glyph");
+      var readout = document.getElementById("readout");
+      var dots = [];
+      var i;
+      for (i = 0; i < total; i++) {
+        var dot = document.createElement("span");
+        dot.className = "dot";
+        glyph.appendChild(dot);
+        dots.push(dot);
+      }
+
+      var patterns = {
+        tienda: [2, 6, 7, 8, 11, 12, 13, 16, 17, 18, 21, 22, 23],
+        zapatos: [11, 12, 13, 16, 17, 18, 21, 22, 23, 24, 26, 27, 28, 29],
+        raton: [7, 11, 12, 13, 16, 17, 18, 22, 27],
+        colonia: [7, 11, 12, 13, 17, 21, 22, 23, 26, 27, 28],
+        silla: [5, 9, 10, 14, 15, 16, 17, 18, 19, 20, 24, 25, 29],
+        capa: [6, 7, 8, 5, 9, 10, 12, 14, 15, 16, 17, 18, 19, 21, 23],
+        gorro: [6, 7, 8, 5, 9, 10, 11, 12, 13, 14, 16, 17, 18]
+      };
+
+      var gifts = Array.prototype.slice.call(document.querySelectorAll(".gift"));
+      var dockLinks = Array.prototype.slice.call(document.querySelectorAll(".dock a"));
+      var active = null;
+      var scan = 0;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function paint(list) {
+        dots.forEach(function (dot, index) {
+          dot.classList.toggle("on", list.indexOf(index) !== -1);
+        });
+      }
+
+      function setActive(id) {
+        active = id;
+        gifts.forEach(function (gift) {
+          gift.classList.toggle("is-on", gift.id === id);
+        });
+        dockLinks.forEach(function (link) {
+          link.classList.toggle("on", link.getAttribute("href") === "#" + id);
+        });
+        if (id && patterns[id]) {
+          paint(patterns[id]);
+          var match = gifts.filter(function (gift) { return gift.id === id; })[0];
+          readout.textContent = match ? match.getAttribute("data-label") : "En espera";
+        }
+      }
+
+      gifts.forEach(function (gift) {
+        gift.addEventListener("pointerenter", function () { setActive(gift.id); });
+        gift.addEventListener("pointerleave", function () { setActive(null); });
+        gift.addEventListener("focus", function () { setActive(gift.id); });
+        gift.addEventListener("blur", function () { setActive(null); });
+        gift.addEventListener("pointermove", function (event) {
+          var box = gift.getBoundingClientRect();
+          gift.style.setProperty("--x", (event.clientX - box.left) + "px");
+          gift.style.setProperty("--y", (event.clientY - box.top) + "px");
+        });
+      });
+
+      if (!reduce) {
+        window.setInterval(function () {
+          if (active) return;
+          var line = [];
+          var row;
+          for (row = 0; row < 8; row++) line.push(row * cols + scan);
+          paint(line);
+          readout.textContent = "En espera";
+          scan = (scan + 1) % cols;
+        }, 320);
+      }
+
+      function followScroll() {
+        if (window.innerWidth >= 960) return;
+        var best = gifts[0];
+        gifts.forEach(function (gift) {
+          if (gift.getBoundingClientRect().top < 140) best = gift;
+        });
+        if (best) setActive(best.id);
+      }
+      followScroll();
+      window.addEventListener("scroll", followScroll, { passive: true });
+      window.addEventListener("resize", followScroll);
+    }());
+  </script>
 </body>
 </html>
