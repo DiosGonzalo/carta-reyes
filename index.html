@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta de Reyes 2026</title>
+  <meta name="description" content="Carta de Reyes 2026. Cada regalo abre la tienda donde se compra.">
+  <meta name="theme-color" content="#10182c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,680;1,9..144,520&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #241c14;
+      --ink-soft: #5c5146;
+      --paper: #f7f1e6;
+      --paper-2: #efe4d2;
+      --gold: #e6c98a;
+      --gold-2: #f8edd2;
+      --wax: #8d2c2c;
+      --night: #10182c;
+      --night-2: #1a2744;
+      --pine: #1d3a32;
+      --line: rgba(36, 28, 20, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-bottom: 96px; }
+    body {
+      margin: 0;
+      color: var(--gold-2);
+      font-family: Outfit, "Segoe UI", sans-serif;
+      background: var(--night);
+    }
+    a { color: inherit; }
+    img, svg { display: block; }
+
+    .sky {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(1.5px 1.5px at 12% 18%, #fff 50%, transparent 52%),
+        radial-gradient(1px 1px at 28% 72%, #fff 50%, transparent 52%),
+        radial-gradient(1.2px 1.2px at 64% 22%, #f8edd2 50%, transparent 52%),
+        radial-gradient(1px 1px at 78% 64%, #fff 50%, transparent 52%),
+        radial-gradient(1.4px 1.4px at 88% 14%, #fff 50%, transparent 52%),
+        radial-gradient(1px 1px at 46% 40%, #fff 50%, transparent 52%),
+        radial-gradient(1px 1px at 8% 88%, #f8edd2 50%, transparent 52%),
+        radial-gradient(ellipse at 50% -10%, #24345c, transparent 55%),
+        var(--night);
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      padding: 22px 16px 108px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: var(--gold);
+    }
+
+    .letter {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.35), transparent 80px),
+        var(--paper);
+      color: var(--ink);
+      border-radius: 18px 18px 8px 8px;
+      padding: 54px 22px 26px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+    .letter::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 42px;
+      background: linear-gradient(#c4a36a, #8d6840);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-radius: 18px 18px 0 0;
+    }
+    .seal {
+      position: absolute;
+      z-index: 1;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, #c45a52, var(--wax) 55%, #641818);
+      box-shadow: 0 6px 0 #5c1818, 0 10px 16px rgba(0,0,0,0.25);
+      color: #f8e7c8;
+      display: grid;
+      place-items: center;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 680;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+    .letter h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 560;
+      font-size: 34px;
+      line-height: 1.05;
+      margin: 18px 0 8px;
+    }
+    .letter .date {
+      margin: 0 0 16px;
+      color: var(--ink-soft);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .letter p {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 520;
+      font-style: italic;
+      font-size: 17.5px;
+      line-height: 1.45;
+      margin: 0 0 12px;
+    }
+    .sign {
+      margin-top: 18px;
+      font-family: Fraunces, Georgia, serif;
+      font-style: italic;
+      font-size: 20px;
+    }
+
+    .list-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      margin: 28px 4px 12px;
+    }
+    .list-head h2 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 560;
+      font-size: 28px;
+    }
+    .list-head p {
+      margin: 0;
+      color: var(--gold);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .gifts {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .gift {
+      display: grid;
+      grid-template-columns: 1fr;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--paper);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      min-height: 44px;
+      scroll-margin-top: 16px;
+      scroll-margin-bottom: 96px;
+    }
+    .gift:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+    .art {
+      position: relative;
+      min-height: 148px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(230, 201, 138, 0.35), transparent 42%),
+        var(--pine);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+    .art svg { width: 120px; height: 84px; }
+    .stamp {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      border: 1.5px dashed var(--gold);
+      color: var(--gold-2);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .body {
+      padding: 16px 16px 18px;
+    }
+    .kicker {
+      display: block;
+      color: #8a5a2b;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .gift h3 {
+      margin: 0 0 8px;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 24px;
+      font-weight: 560;
+      line-height: 1.1;
+    }
+    .why {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .price {
+      font-weight: 600;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .cta {
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .note {
+      margin: 18px 4px 0;
+      color: rgba(248, 237, 210, 0.72);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .dock {
+      position: fixed;
+      z-index: 2;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+      padding: 6px;
+      border-radius: 18px;
+      background: rgba(16, 24, 44, 0.92);
+      border: 1px solid rgba(230, 201, 138, 0.35);
+      backdrop-filter: blur(8px);
+    }
+    .dock a {
+      text-decoration: none;
+      text-align: center;
+      color: var(--gold-2);
+      font-size: 10px;
+      letter-spacing: 0.02em;
+      padding: 8px 0 6px;
+      border-radius: 12px;
+      min-height: 44px;
+    }
+    .dock a:focus-visible { outline: 2px solid var(--gold); }
+    .dock svg { width: 18px; height: 18px; margin: 0 auto 3px; }
+
+    @media (min-width: 980px) {
+      .sky { display: none; }
+      body {
+        background:
+          radial-gradient(ellipse at 50% 0%, #4a3b2c, transparent 42%),
+          linear-gradient(#3a2e24, #241910);
+        color: var(--ink);
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 28px 28px 40px;
+      }
+      .top {
+        color: var(--gold-2);
+        margin-bottom: 22px;
+      }
+      .stage {
+        display: grid;
+        grid-template-columns: 390px 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+      .letter {
+        position: sticky;
+        top: 24px;
+        border-radius: 6px 22px 18px 6px;
+        padding: 36px 28px 28px;
+        transform: rotate(-0.4deg);
+      }
+      .letter::before { display: none; }
+      .seal {
+        top: 22px;
+        left: auto;
+        right: 22px;
+        transform: none;
+      }
+      .letter h1 { font-size: 42px; margin-top: 0; padding-right: 60px; }
+      .letter p { font-size: 17px; }
+
+      .gifts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        padding: 16px;
+        background: rgba(247, 241, 230, 0.94);
+        border-radius: 28px;
+        box-shadow: 0 24px 50px rgba(0,0,0,0.28);
+      }
+      .list-head {
+        grid-column: 1 / -1;
+        margin: 6px 8px 2px;
+        color: var(--ink);
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: end;
+      }
+      .list-head p { color: var(--ink-soft); max-width: 280px; text-align: right; }
+      .gift {
+        grid-template-columns: 104px 1fr;
+        min-height: 176px;
+        border-radius: 16px;
+        box-shadow: none;
+        border: 1px solid rgba(36, 28, 20, 0.08);
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .gift:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(36, 28, 20, 0.12);
+      }
+      .art { min-height: 100%; padding: 22px 8px 12px; }
+      .art svg { width: 78px; height: 56px; }
+      .stamp { font-size: 9px; letter-spacing: 0.08em; padding: 3px 6px; }
+      .gift h3 { font-size: 20px; }
+      .why { font-size: 13.5px; }
+      .note {
+        grid-column: 1 / -1;
+        margin: 0 8px 4px;
+        color: var(--ink-soft);
+      }
+      .dock { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .gift { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+  <main class="wrap">
+    <header class="top">
+      <span>Carta de Reyes</span>
+      <span>5 de enero de 2026</span>
+    </header>
+
+    <div class="stage">
+      <article class="letter">
+        <div class="seal" aria-hidden="true">R</div>
+        <h1>Queridos papá y mamá</h1>
+        <p class="date">Seis deseos, cada uno con su tienda</p>
+        <p>Este año la carta va de monte. Si tocáis una tarjeta, se abre la página donde se compra: en el móvil ocupa la pantalla, y en el ordenador queda al lado de esta carta.</p>
+        <p>La tienda que quiero es la Cloud Up Pro 2. La comparé con la Mongar 2. La Mongar es más ancha y tiene dos puertas, pero pesa unos 2,3 kg. La Pro anda por 1,5 kg, y en una ruta larga esa diferencia se nota cada día.</p>
+        <p>La silla y el plumífero también los he elegido yo. La impermeable ya la tengo: el plumífero es la capa de calor, y va debajo.</p>
+        <p class="sign">Os quiero.</p>
+      </article>
+
+      <section class="gifts" aria-label="Regalos">
+        <div class="list-head">
+          <h2>Los regalos</h2>
+          <p>Toda la tarjeta es el enlace. El botón dice la tienda.</p>
+        </div>
+
+        <a class="gift" id="tienda" href="https://www.amazon.es/dp/B0D3KYLPLP" target="_blank" rel="noopener noreferrer">
+          <div class="art">
+            <span class="stamp">Recomendada</span>
+            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
+              <path d="M10 58c18-28 82-28 100 0" stroke="#f8edd2" stroke-width="3"/>
+              <path d="M22 58c12-16 64-16 76 0" stroke="#e6c98a" stroke-width="2"/>
+              <path d="M18 58h84" stroke="#f8edd2" stroke-width="3"/>
+              <path d="M60 30v28" stroke="#e6c98a" stroke-width="2"/>
+              <path d="M28 50l32-22 32 22" stroke="#f8edd2" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kicker">Tienda de ruta</span>
+            <h3>Naturehike Cloud Up Pro 2</h3>
+            <p class="why">Dos plazas, una puerta, suelo de 210 × 130 cm y se pliega a unos 40 cm. La Mongar solo compensa si se duerme en pareja y se hace vida dentro.</p>
+            <div class="foot">
+              <span class="price">unos 150 €</span>
+              <span class="cta">Ver en Amazon</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="gift" id="zapatos" href="https://www.adidas.es/zapatillas-de-senderismo-terrex-freehiker-sl-gore-tex-climawarm_/KI4872.html" target="_blank" rel="noopener noreferrer">
+          <div class="art">
+            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
+              <path d="M18 48c8-16 22-22 36-18 8 2 14 2 22-6 10 4 22 14 28 24 2 8-6 14-18 14H28c-8 0-14-6-10-14z" stroke="#f8edd2" stroke-width="2.4"/>
+              <path d="M34 50h54" stroke="#e6c98a" stroke-width="2"/>
+              <path d="M28 62c8 2 52 2 66-4" stroke="#f8edd2" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kicker">Zapatillas de invierno</span>
+            <h3>Terrex Freehiker SL GORE-TEX</h3>
+            <p class="why">Aislamiento Climawarm+ y suela Continental, para frío y agua. Negras, referencia KI4872. Dan la talla de siempre.</p>
+            <div class="foot">
+              <span class="price">180 €</span>
+              <span class="cta">Ver en adidas</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="gift" id="raton" href="https://www.amazon.es/dp/B0D3D5JY97" target="_blank" rel="noopener noreferrer">
+          <div class="art">
+            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
+              <rect x="46" y="16" width="28" height="40" rx="14" stroke="#f8edd2" stroke-width="2.4"/>
+              <path d="M60 16v16" stroke="#e6c98a" stroke-width="2"/>
+              <rect x="34" y="58" width="52" height="12" rx="4" stroke="#f8edd2" stroke-width="2.4"/>
+              <circle cx="60" cy="64" r="2" fill="#e6c98a"/>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kicker">Ratón</span>
+            <h3>Attack Shark X11</h3>
+            <p class="why">Inalámbrico, con sensor PixArt y base de carga magnética. El enlace abre el anuncio concreto.</p>
+            <div class="foot">
+              <span class="price">unos 40 €</span>
+              <span class="cta">Ver en Amazon</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="gift" id="colonia" href="https://www.primor.eu/es_es/afnan-perfumes-supremacy-collector-s-edition-156610.html" target="_blank" rel="noopener noreferrer">
+          <div class="art">
+            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
+              <rect x="52" y="14" width="16" height="10" rx="2" stroke="#f8edd2" stroke-width="2.2"/>
+              <path d="M46 28h28l-4 40H50l-4-40z" stroke="#f8edd2" stroke-width="2.4"/>
+              <path d="M50 42h20" stroke="#e6c98a" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kicker">Colonia</span>
+            <h3>Afnan Supremacy Collector's Edition</h3>
+            <p class="why">Eau de parfum de 100 ml. Piña, bergamota y manzana al principio; ámbar y almizcle al fondo.</p>
+            <div class="foot">
+              <span class="price">unos 45 €</span>
+              <span class="cta">Ver en Primor</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="gift" id="silla" href="https://www.decathlon.es/es/p/silla-baja-de-camping-plegable-y-ultracompacta-500-m-beige/375910/c70c1m8975151" target="_blank" rel="noopener noreferrer">
+          <div class="art">
+            <span class="stamp">Recomendada</span>
+            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
+              <path d="M30 24c8 10 14 28 12 40M90 24c-8 10-14 28-12 40" stroke="#f8edd2" stroke-width="2.4"/>
+              <path d="M34 40h52" stroke="#e6c98a" stroke-width="3"/>
+              <path d="M28 64h18M74 64h18" stroke="#f8edd2" stroke-width="2.4"/>
+              <path d="M40 40c6 14 34 14 40 0" stroke="#f8edd2" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kicker">Silla de vivac</span>
+            <h3>Silla baja Quechua 500</h3>
+            <p class="why">Aluminio, 1,1 kg, plegada mide 38 × 13 × 12 cm y aguanta 110 kg. Una Helinox pesa la mitad y cuesta más del triple.</p>
+            <div class="foot">
+              <span class="price">39,99 €</span>
+              <span class="cta">Ver en Decathlon</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="gift" id="capa" href="https://www.decathlon.es/es/p/plumifero-de-montana-y-trekking-con-capucha-hombre-forclaz-mt100/167571/c43m8858286" target="_blank" rel="noopener noreferrer">
+          <div class="art">
+            <span class="stamp">Recomendada</span>
+            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
+              <path d="M60 16c8 0 12 6 12 6l16 10-8 8-8-4v28H48V36l-8 4-8-8 16-10s4-6 12-6z" stroke="#f8edd2" stroke-width="2.4"/>
+              <path d="M60 22v36" stroke="#e6c98a" stroke-width="2"/>
+              <path d="M48 28c6 6 18 6 24 0" stroke="#e6c98a" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kicker">Capa de calor</span>
+            <h3>Plumífero Forclaz MT100</h3>
+            <p class="why">Plumón de 800 CUIN, con capucha, se guarda en su bolsillo. Va debajo de la impermeable. Decathlon lo sitúa hasta unos −5 °C en marcha. Si llueve, no va solo.</p>
+            <div class="foot">
+              <span class="price">37,99 €</span>
+              <span class="cta">Ver en Decathlon</span>
+            </div>
+          </div>
+        </a>
+
+        <p class="note">Precios vistos en noviembre de 2026. En la tienda pueden haber cambiado. En la tienda de campaña, comprobad que pone Cloud Up Pro 2 y que el suelo mide 210 × 130 cm.</p>
+      </section>
+    </div>
+  </main>
+
+  <nav class="dock" aria-label="Regalos">
+    <a href="#tienda">Tienda</a>
+    <a href="#zapatos">Zapatos</a>
+    <a href="#raton">Ratón</a>
+    <a href="#colonia">Colonia</a>
+    <a href="#silla">Silla</a>
+    <a href="#capa">Capa</a>
+  </nav>
+</body>
+</html>
