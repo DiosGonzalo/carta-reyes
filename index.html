@@ -267,22 +267,23 @@
       left: 10px;
       right: 10px;
       bottom: 10px;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      display: flex;
       gap: 4px;
       padding: 6px;
       border-radius: 18px;
       background: rgba(16, 24, 44, 0.92);
       border: 1px solid rgba(230, 201, 138, 0.35);
       backdrop-filter: blur(8px);
+      overflow-x: auto;
     }
     .dock a {
+      flex: 1 0 auto;
       text-decoration: none;
       text-align: center;
       color: var(--gold-2);
       font-size: 10px;
       letter-spacing: 0.02em;
-      padding: 8px 0 6px;
+      padding: 8px 4px 6px;
       border-radius: 12px;
       min-height: 44px;
     }
@@ -390,10 +391,10 @@
       <article class="letter">
         <div class="seal" aria-hidden="true">R</div>
         <h1>Queridos papá y mamá</h1>
-        <p class="date">Seis deseos, cada uno con su tienda</p>
+        <p class="date">Siete deseos, cada uno con su tienda</p>
         <p>Este año la carta va de monte. Si tocáis una tarjeta, se abre la página donde se compra: en el móvil ocupa la pantalla, y en el ordenador queda al lado de esta carta.</p>
         <p>La tienda que quiero es la Mongar 2 de tela 20D, la gris, en la web de Naturehike. Pesa 1,8 kg, tiene dos puertas y el suelo es más ancho. La 210T de la misma página pesa 2,2 kg: no es esa. La Cloud Up es un poco más ligera, pero se queda corta de sitio.</p>
-        <p>La silla y el plumífero también los he elegido yo. La impermeable ya la tengo: el plumífero es la capa de calor, y va debajo.</p>
+        <p>La silla y el plumífero también los he elegido yo. La impermeable ya la tengo: el plumífero es la capa de calor, y va debajo. El gorro es el Tweak de Mammut, pesa 40 g y tapa las orejas.</p>
         <p class="sign">Os quiero.</p>
       </article>
 
@@ -524,6 +525,25 @@
           </div>
         </a>
 
+        <a class="gift" id="gorro" href="https://www.mammut.com/es/es/products/1191-01352-5899/tweak-beanie" target="_blank" rel="noopener noreferrer">
+          <div class="art">
+            <svg viewBox="0 0 120 84" fill="none" aria-hidden="true">
+              <path d="M38 46c2-18 10-28 22-28s20 10 22 28" stroke="#f8edd2" stroke-width="2.4"/>
+              <path d="M34 46h52v8c0 8-10 14-26 14S34 62 34 54v-8z" stroke="#f8edd2" stroke-width="2.4"/>
+              <path d="M42 50h36" stroke="#e6c98a" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="kicker">Gorro</span>
+            <h3>Mammut Tweak Beanie</h3>
+            <p class="why">Marine-white, talla única y 40 g. Punto de lana y acrílico, con forro de polar por dentro para las orejas. Hecho en Alemania.</p>
+            <div class="foot">
+              <span class="price">30 €</span>
+              <span class="cta">Ver en Mammut</span>
+            </div>
+          </div>
+        </a>
+
         <p class="note">Precios vistos en noviembre de 2026. En la tienda pueden haber cambiado. En la tienda de campaña, dejad marcada la variante Grey 20D. La 210T es otra tela y pesa más.</p>
       </section>
     </div>
@@ -536,6 +556,7 @@
     <a href="#colonia">Colonia</a>
     <a href="#silla">Silla</a>
     <a href="#capa">Capa</a>
+    <a href="#gorro">Gorro</a>
   </nav>
 </body>
 </html>
